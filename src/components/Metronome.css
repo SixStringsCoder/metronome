@@ -1,34 +1,105 @@
-.metronome {
+section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100vw;
   height: 100vh;
+  font-family: 'Press Start 2P', cursive;
+font-family: 'Wallpoet', cursive;
+font-family: 'Geostar Fill', cursive;
+}
+
+.metronome {
+  background-color: #ccc;
+  background-image: linear-gradient(#999, #ccc);
+  width: 75vw;
+  height: 95vh;
+  box-shadow: 1px 1px 1px black;
+  display: grid;
+  grid-template: 80% 20% / 10% 50% 40%;
+  grid-template-areas:
+  ". bpm slider"
+  ". . playbutton"
 }
 
 #playBtn {
+  grid-area: playbutton;
   margin: 10px;
-  font-size: 1.2rem;
+  font-size: 2rem;
+  letter-spacing: 3px;
+  font-family: 'Karla', sans-serif;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: 600;
   padding: 10px 20px;
-  background-color: orange;
+  background-color: #0078A9;
+  color: #fff;
   outline: none;
+  box-shadow: 0 0 1px black;
+}
+
+#playBtn:active {
+  background-color: #ccc;
+  color: #0078A9;
+  box-shadow: none;
 }
 
 #bpmLabel {
-  font-size: 1.2rem;
-  font-family: sans-serif;
-  margin: 10px;
+  grid-area: bpm;
+  background: #FFFFFF;
+  font-size: 10rem;
+  font-family: 'Karla', sans-serif;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  height: 83%;
+  margin-top: 4vh;
+  padding: 0 10px;
+  border-radius: 25px;
+  box-shadow: inset 0px 3px 12px 1px #000000;
 }
 
 .bpm-slider {
+  grid-area: slider;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
-.bpm-slider input {
-  width: 35vw;
-  margin: 10px;
+.slider {
+    -webkit-appearance: none;
+    width: 35vw;
+    height: 2vw;
+    border-radius: 5px;
+    background: #000;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    -ms-transform: rotate(-90deg); /* IE 9 */
+    -webkit-transform: rotate(-90deg); /* Safari */
+    transform: rotate(-90deg); /* Standard syntax */
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3vw;
+    height: 10vw;
+    border-radius: 10%;
+    border: 0;
+    background: #DB0000;
+    cursor: pointer;
+    transition: background .3s;
+}
+
+.slider::-webkit-slider-thumb::before {
+        content: "BPM"
+      }
+
+.slider::-webkit-slider-thumb:hover {
+    background: #6EFF25;
 }

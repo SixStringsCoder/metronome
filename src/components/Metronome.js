@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
+import logo from './graphics/logo_256.png';
 import './Metronome.css';
 import click1 from './audio/click1.wav';
 import click2 from './audio/click2.wav';
@@ -58,13 +58,19 @@ class Metronome extends Component {
     const { bpm, playing } = this.state;
 
     return (
-      <div className="metronome">
-        <div className="bpm-slider">
+      <section>
+        <div className="metronome">
+          <div className="bpm-slider">
+            <input onChange={this.handleBpmChange}
+              className="slider"
+              type="range"
+              min="50" max="256"
+              value={bpm} />
+          </div>
           <div id="bpmLabel">{bpm} BPM</div>
-          <input onChange={this.handleBpmChange} type="range" min="50" max="256" value={bpm} />
+          <button onMouseDown={this.startStop} id="playBtn">{playing ? 'Stop' : 'Play'}</button>
         </div>
-        <button onMouseDown={this.startStop} id="playBtn">{playing ? 'Stop' : 'Play'}</button>
-      </div>
+      </section>
     );
   }
 }

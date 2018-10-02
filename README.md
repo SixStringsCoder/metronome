@@ -6,3 +6,4 @@ Objective: Create a metronome using ReactJS.  Show BPM, slider to control BPM an
 
 Additional Future Features:
 - Add buttons to control whether metronome click plays back quarter, eighth, sixteenth or triplets subdivisions.
+- Add Time Signature selector to control beatsPerMeasure state
