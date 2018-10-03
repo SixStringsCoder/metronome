@@ -33,10 +33,11 @@ section {
   box-shadow: 1px 1px 1px black;
   border-radius: 10px;
   display: grid;
-  grid-template: 80% 20% / 10% 50% 40%;
+  grid-template: 80% 20% / 70% 30%;
   grid-template-areas:
-  ". bpm slider"
-  ". . playbutton"
+  "bpm slider"
+  "subDiv playbutton";
+  padding: 20px;
 }
 
 #playBtn {
@@ -114,10 +115,45 @@ section {
     transition: background-color .3s;
 }
 
-.slider::-webkit-slider-thumb::before {
-    content: "BPM"
-}
-
 .slider::-webkit-slider-thumb:hover {
     background-color: #6EFF25;
+}
+
+
+/* SubDivision Button Area */
+#subDivBtnContainer {
+  grid-area: subDiv;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#subDivBtnContainer a {
+  width: 100px;
+  height: 75px;
+  box-shadow: 1px 1px 5px black;
+  background-color: #fff;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#subDivBtnContainer a:active {
+    box-shadow: none;
+}
+
+img.subDivBtn {
+  width: 80px;
+}
+
+img#eighths {
+  align-self: flex-end;
+  width: 75px;
+}
+
+img#sixteenths {
+  align-self: flex-end;
+  margin-bottom: 5px;
+  width: 87px;
 }
