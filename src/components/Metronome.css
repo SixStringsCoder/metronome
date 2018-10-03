@@ -1,3 +1,20 @@
+header {
+  width: 100vw;
+  background-color: #DB0000;
+  display: flex;
+  justify-content: center;
+  margin-bottom: -50px;
+}
+
+h1 {
+  font-size: 6rem;
+  word-spacing: 20px;
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  padding: 1vh 0 2vh;
+}
+
 section {
   display: flex;
   flex-direction: column;
@@ -5,17 +22,16 @@ section {
   align-items: center;
   width: 100vw;
   height: 100vh;
-  font-family: 'Press Start 2P', cursive;
-font-family: 'Wallpoet', cursive;
-font-family: 'Geostar Fill', cursive;
 }
 
 .metronome {
   background-color: #ccc;
   background-image: linear-gradient(#999, #ccc);
-  width: 75vw;
-  height: 95vh;
+  width: 55vw;
+  height: 75vh;
+  /* margin-bottom: 15vh; */
   box-shadow: 1px 1px 1px black;
+  border-radius: 10px;
   display: grid;
   grid-template: 80% 20% / 10% 50% 40%;
   grid-template-areas:
@@ -71,10 +87,10 @@ font-family: 'Geostar Fill', cursive;
 
 .slider {
     -webkit-appearance: none;
-    width: 35vw;
+    width: 28vw;
     height: 2vw;
     border-radius: 5px;
-    background: #000;
+    background: #fff;
     outline: none;
     opacity: 0.7;
     -webkit-transition: .2s;
@@ -82,6 +98,7 @@ font-family: 'Geostar Fill', cursive;
     -ms-transform: rotate(-90deg); /* IE 9 */
     -webkit-transform: rotate(-90deg); /* Safari */
     transform: rotate(-90deg); /* Standard syntax */
+    box-shadow: inset 0px 0px 8px 1px #000000;
 }
 
 .slider::-webkit-slider-thumb {
@@ -91,15 +108,16 @@ font-family: 'Geostar Fill', cursive;
     height: 10vw;
     border-radius: 10%;
     border: 0;
-    background: #DB0000;
+    background-color: #DB0000;
+    box-shadow: 0 0 1px 1px black;
     cursor: pointer;
-    transition: background .3s;
+    transition: background-color .3s;
 }
 
 .slider::-webkit-slider-thumb::before {
-        content: "BPM"
-      }
+    content: "BPM"
+}
 
 .slider::-webkit-slider-thumb:hover {
-    background: #6EFF25;
+    background-color: #6EFF25;
 }
