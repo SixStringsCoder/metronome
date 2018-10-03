@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './Metronome.css';
 import click1 from './audio/click1.wav';
 import click2 from './audio/click2.wav';
+import eighthNotes from './graphics/eighths.png';
+import tripletNotes from './graphics/triplets.png';
+import sixteenthNotes from './graphics/sixteenths.png';
 
 class Metronome extends Component {
   constructor(props) {
@@ -77,6 +80,11 @@ class Metronome extends Component {
             </div>
             <div id="bpmLabel">{bpm} BPM</div>
             <button onMouseDown={this.startStop} id="playBtn">{playing ? 'Stop' : 'Play'}</button>
+            <div id="subDivBtnContainer">
+              <a><img className="subDivBtn" id="eighths" src={eighthNotes} /></a>
+              <a><img className="subDivBtn" id="triplets" src={tripletNotes} /></a>
+              <a><img className="subDivBtn" id="sixteenths" src={sixteenthNotes} /></a>
+            </div>
           </div>
         </section>
       </main>
