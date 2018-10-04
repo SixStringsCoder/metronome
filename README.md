@@ -9,6 +9,7 @@ Created on Oct. 1, 2018 by Steve Hanlon
 
 Additional Features:
 - Add subdivision buttons to control whether metronome click plays back quarter, eighth, sixteenth or triplets subdivisions.
-![MVP Screenshot](./screenshots/subDivBtnArea.png)
+![Subdivision buttons](./screenshots/subDivBtnArea.png)
 
 - Add Time Signature selector to control beatsPerMeasure state
+![Time Signature Selector](./screenshots/screen_w_timesigselect.png)
