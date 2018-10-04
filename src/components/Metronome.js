@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Metronome.css';
 import click1 from './audio/click1.wav';
 import click2 from './audio/click2.wav';
+import click3 from './audio/click3.wav';
 import eighthNotes from './graphics/eighths.png';
 import tripletNotes from './graphics/triplets.png';
 import sixteenthNotes from './graphics/sixteenths.png';
@@ -13,11 +14,13 @@ class Metronome extends Component {
       bpm: 100,
       playing: false,
       count: 0,
-      beatsPerMeasure: 4
+      beatsPerMeasure: 4,
+      subDivPlaying: false
     };
 
     this.click1 = new Audio(click1);
     this.click2 = new Audio(click2);
+    this.click3 = new Audio(click3);
   }
 
   handleBpmChange = event => {
@@ -36,9 +39,7 @@ class Metronome extends Component {
   startStop = () => {
     if (this.state.playing) {
       clearInterval(this.timer);
-      this.setState({
-        playing: false
-      })
+      this.setState({ playing: false })
     } else {
       this.timer = setInterval(this.playClick, 60000 / this.state.bpm);
       this.setState(
@@ -62,6 +63,24 @@ class Metronome extends Component {
     }));
   }
 
+  playSubDClick = () => this.click3.play();
+
+  startStopSubDiv = (event) => {
+    const beat = {
+      eighths: (60000 / this.state.bpm) / 2,
+      triplets: (60000 / this.state.bpm) / 3,
+      sixteenths: (60000 / this.state.bpm) / 4,
+    }
+    let subDivision = event.target.id;
+
+    if (this.state.subDivPlaying) {
+      clearInterval(this.subDivClick);
+      this.setState({ subDivPlaying: false });
+    } else {
+      this.subDivClick = setInterval(this.playSubDClick, beat[subDivision]);
+      this.setState({ subDivPlaying: true });
+    }
+  }
 
   render() {
     const { bpm, playing } = this.state;
@@ -81,9 +100,9 @@ class Metronome extends Component {
             <div id="bpmLabel">{bpm} BPM</div>
             <button onMouseDown={this.startStop} id="playBtn">{playing ? 'Stop' : 'Play'}</button>
             <div id="subDivBtnContainer">
-              <a><img className="subDivBtn" id="eighths" src={eighthNotes} /></a>
-              <a><img className="subDivBtn" id="triplets" src={tripletNotes} /></a>
-              <a><img className="subDivBtn" id="sixteenths" src={sixteenthNotes} /></a>
+              <a><img onClick={this.startStopSubDiv} className="subDivBtn" id="eighths" src={eighthNotes} /></a>
+              <a><img onClick={this.startStopSubDiv} className="subDivBtn" id="triplets" src={tripletNotes} /></a>
+              <a><img onClick={this.startStopSubDiv} className="subDivBtn" id="sixteenths" src={sixteenthNotes} /></a>
             </div>
           </div>
         </section>
