@@ -39,6 +39,7 @@ class Metronome extends Component {
   startStop = () => {
     if (this.state.playing) {
       clearInterval(this.timer);
+      clearInterval(this.subDivClick); // Turn off subdivision click whenever STOP is clicked
       this.setState({
         playing: false,
         subDivPlaying: false,
@@ -78,7 +79,8 @@ class Metronome extends Component {
       this.setState({ subDivPlaying: false });
     } else if (this.state.playing) {
       this.subDivClick = setInterval(this.playSubDClick, beat[subDivision]);
-      this.setState({ subDivPlaying: true });
+
+      this.setState({ subDivPlaying: true }, console.log(beat[subDivision]));
     } else {
       alert("The metronome must be playing to hear subdivions.")
     }
