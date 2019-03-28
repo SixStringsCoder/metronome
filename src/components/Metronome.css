@@ -3,10 +3,11 @@ header {
   background-color: #DB0000;
   display: flex;
   justify-content: center;
-  margin-bottom: -50px;
+  border-bottom: 2px solid gray;
 }
 
-
+h1 {
+  font-size: 5rem;
   word-spacing: 20px;
   color: #fff;
   font-family: 'Raleway', sans-serif;
