@@ -4,7 +4,6 @@ Title: Acme Time Machine
 Created on Oct. 1, 2018 by Steve Hanlon
 
 **Objective**: Create a metronome using ReactJS.  Display Beats Per Minute (BPM), a slider to control BPM and a start/stop button.  Use State to keep track of count, beatsPerMeasure, audio play state, and BPM. Add distinct audio click sounds for the first beat and following beats.
-
 ![MVP Screenshot](./screenshots/MVP_screenshot.png)
 
 Additional Features:
