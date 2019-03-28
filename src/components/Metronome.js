@@ -39,7 +39,8 @@ class Metronome extends Component {
   startStop = () => {
     if (this.state.playing) {
       clearInterval(this.timer);
-      clearInterval(this.subDivClick); // Turn off subdivision click whenever STOP is clicked
+      // Turn off subdivision click whenever STOP is clicked
+      clearInterval(this.subDivClick);
       this.setState({
         playing: false,
         subDivPlaying: false,
@@ -57,7 +58,7 @@ class Metronome extends Component {
   };
 
   playClick = () => {
-    const {count, beatsPerMeasure} = this.state;
+    const { count } = this.state;
     // Put accented beat on 1 and softer beat on other beats
     count > 0 ? this.click1.play() : this.click2.play();
 
@@ -106,7 +107,6 @@ class Metronome extends Component {
 
   render() {
     const { bpm, playing } = this.state;
-
     return (
       <main>
         <header><h1>ACME TIME MACHINE</h1></header>
@@ -119,7 +119,7 @@ class Metronome extends Component {
                 min="50" max="256"
                 value={bpm} />
             </div>
-            <div id="bpmLabel">{bpm} BPM</div>
+            <div id="bpmLabel"><span>{bpm}</span> <span>BPM</span></div>
 
             <button onMouseDown={this.startStop} id="playBtn">{playing ? 'Stop' : 'Play'}</button>
 
@@ -135,9 +135,20 @@ class Metronome extends Component {
             </div>
 
             <div id="subDivBtnContainer">
-              <a><img onMouseDown={this.startStopSubDiv} className="subDivBtn" id="eighths" src={eighthNotes} /></a>
-              <a><img onMouseDown={this.startStopSubDiv} className="subDivBtn" id="triplets" src={tripletNotes} /></a>
-              <a><img onMouseDown={this.startStopSubDiv} className="subDivBtn" id="sixteenths" src={sixteenthNotes} /></a>
+              <span>
+                <img alt="eighth-note subdivision" onMouseDown={this.startStopSubDiv} className="subDivBtn" id="eighths" src={eighthNotes} />
+              </span>
+              <span>
+                <img alt="triplet-note subdivision" onMouseDown={this.startStopSubDiv} className="subDivBtn" id="triplets" src={tripletNotes} />
+              </span>
+              <span>
+                <img alt="sixteenth-note subdivision" onMouseDown={this.startStopSubDiv} className="subDivBtn" id="sixteenths" src={sixteenthNotes} />
+              </span>
+            </div>
+            <div id="subDivLabelContainer">
+              <span>eighths</span>
+              <span>triplets</span>
+              <span>sixteenths</span>
             </div>
           </div>
         </section>
